@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { CONFIRM_content, SET_Alert, TOGGLE_Theme } from "../Slices/FeedBackSlice"
+import { AddNewComponent, CONFIRM_content, SET_Alert, TOGGLE_Theme } from "../Slices/FeedBackSlice"
 
 const useFeedBacks = () => {
     const Alert_isOpen = useSelector(state => state.feedbacks.Alert)
@@ -14,16 +14,24 @@ const useFeedBacks = () => {
         dispatch(SET_Alert(action))
     }
 
-    const toggleTheme = (mode) => {
-        dispatch(TOGGLE_Theme(mode))
+    const toggleTheme = () => {
+        dispatch(TOGGLE_Theme())
     }
 
     const setConfirm = (open, title, content, actions) => {
         const action = { open, title, content, actions }
         dispatch(CONFIRM_content(action))
     }
+    const setNewConfirm = (open, component) => {
+        const action = { 
+            open, 
+            component: typeof component === "function" ? component : () => component 
+        };
+        dispatch(AddNewComponent(action));
+    };
+    
 
-    return { setAlert, Alert_isOpen, theme_mode, toggleTheme, setConfirm, confirmContent, confirm_Open }
+    return { setAlert, Alert_isOpen, theme_mode, toggleTheme, setConfirm, confirmContent, confirm_Open , setNewConfirm }
 }
 
 export default useFeedBacks

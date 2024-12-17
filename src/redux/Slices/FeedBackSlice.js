@@ -17,8 +17,8 @@ const AlertReducer = {
 
 
 const ThemeReducer = {
-    TOGGLE_Theme: (state, action) => {
-        state.Theme = action.payload == 'light' ? 'dark' : 'light';
+    TOGGLE_Theme: (state) => {
+        state.Theme = state.Theme === 'light' ? 'dark' : 'light'
     }
 }
 
@@ -27,10 +27,15 @@ const ConfirmReducer = {
         if (action.payload) {
             state.Confirm = action.payload;
         } else {
-            state.Confirm = { open: false }
+            state.Confirm = { open: false };
         }
+    },
+    AddNewComponent: (state, action) => {
+        const { open, component } = action.payload;
+        state.Confirm = { open, component };
     }
-}
+};
+
 
 
 export const FeedBackSlice = createSlice({
@@ -44,5 +49,5 @@ export const FeedBackSlice = createSlice({
 
 })
 
-export const { SET_Alert, TOGGLE_Theme, CONFIRM_content } = FeedBackSlice.actions;
+export const { SET_Alert, TOGGLE_Theme, CONFIRM_content, AddNewComponent } = FeedBackSlice.actions;
 export const FeedBackReducer = FeedBackSlice.reducer;
