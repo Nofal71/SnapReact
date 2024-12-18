@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     Alert: null,     // { message: null, type: null },
     Confirm: { open: false, title: null, content: null, actions: [{ lable: null, handler: null, sx: null }] },
-    Theme: 'light',
+    Theme: 'dark',
 }
 
 
