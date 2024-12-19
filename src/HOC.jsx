@@ -1,19 +1,29 @@
 import React from 'react'
 import ThemeConfig from './Theme/ThemeConfig'
 import { Provider } from 'react-redux'
-import { store } from './redux/store/store'
+import { persistor, store } from './redux/store/store'
 import MUI_Alert from './Components/common/Alert'
 import AlertDialog from './Components/common/Modal'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const HOC = ({ children }) => {
+    const queryClient = new QueryClient()
     return (
         <>
             <Provider store={store}>
-                <ThemeConfig>
-                    <MUI_Alert />
-                    <AlertDialog />
-                    {children}
-                </ThemeConfig>
+                <PersistGate
+                    loading={null}
+                    persistor={persistor}
+                >
+                    <QueryClientProvider client={queryClient}>
+                        <ThemeConfig>
+                            <MUI_Alert />
+                            <AlertDialog />
+                            {children}
+                        </ThemeConfig>
+                    </QueryClientProvider>
+                </PersistGate>
             </Provider>
         </>
     )

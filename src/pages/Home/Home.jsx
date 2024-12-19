@@ -3,7 +3,7 @@ import React from 'react';
 import useFeedBacks from '../../redux/Providers/FeedBacksProviders';
 
 const Home = () => {
-  const { setNewConfirm, setConfirm, setAlert , toggleTheme} = useFeedBacks();
+  const { setNewConfirm, setConfirm, setAlert, toggleTheme } = useFeedBacks();
 
   return (
     <div>
@@ -25,7 +25,7 @@ const Home = () => {
       >
         Open Confirm
       </Button>
-      <Button onClick={() => setAlert('This is Reusable Alert' , 'success')}>Open Alert</Button>
+      <Button onClick={() => setAlert('This is Reusable Alert', 'success')}>Open Alert</Button>
       <Button onClick={() => toggleTheme('dark')}>Toggle Theme</Button>
     </div>
   );
