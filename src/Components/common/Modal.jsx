@@ -80,6 +80,7 @@ export default function AlertDialog() {
                       confirmContent?.actions?.map((action, index) => (
                         <div key={index}>
                           <Button
+                            variant={action.variant && action.variant}
                             sx={action.sx}
                             onClick={() => {
                               action.handler();
