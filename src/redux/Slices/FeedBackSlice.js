@@ -6,6 +6,7 @@ const initialState = {
     Alert: null,     // { message: null, type: null },
     Confirm: { open: false, title: null, content: null, actions: [{ lable: null, handler: null, sx: null }] },
     Theme: 'dark',
+    SnackBar: { open: false, message: null, callback: null }
 }
 
 
@@ -36,6 +37,12 @@ const ConfirmReducer = {
     }
 };
 
+const SnackBarReducer = {
+    SET_SnackBar: (state, action) => {
+        state.SnackBar = action.payload;
+    }
+}
+
 
 
 export const FeedBackSlice = createSlice({
@@ -45,9 +52,10 @@ export const FeedBackSlice = createSlice({
         ...AlertReducer,
         ...ThemeReducer,
         ...ConfirmReducer,
+        ...SnackBarReducer
     }
 
 })
 
-export const { SET_Alert, TOGGLE_Theme, CONFIRM_content, AddNewComponent } = FeedBackSlice.actions;
+export const { SET_Alert, TOGGLE_Theme, CONFIRM_content, AddNewComponent, SET_SnackBar } = FeedBackSlice.actions;
 export const FeedBackReducer = FeedBackSlice.reducer;

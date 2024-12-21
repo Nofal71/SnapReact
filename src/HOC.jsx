@@ -6,6 +6,7 @@ import MUI_Alert from './Components/common/Alert'
 import AlertDialog from './Components/common/Modal'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { PersistGate } from 'redux-persist/integration/react'
+import SnackBar from './Components/common/SnackBar'
 
 const HOC = ({ children }) => {
     const queryClient = new QueryClient()
@@ -20,6 +21,7 @@ const HOC = ({ children }) => {
                         <ThemeConfig>
                             <MUI_Alert />
                             <AlertDialog />
+                            <SnackBar />
                             {children}
                         </ThemeConfig>
                     </QueryClientProvider>

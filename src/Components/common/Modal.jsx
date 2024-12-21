@@ -23,74 +23,81 @@ export default function AlertDialog() {
 
   return (
     <React.Fragment>
-      <Dialog
-        open={confirm_Open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        TransitionComponent={Transition}
-        keepMounted
-      >
-        {confirmContent?.component ? (
-          <Box sx={{
-            p: 5,
-          }}>
-            <IconButton
-              aria-label="close"
-              onClick={handleClose}
-              sx={(theme) => ({
-                position: 'absolute',
-                right: 8,
-                top: 6,
-                color: theme.palette.grey[500],
-              })}
-            >
-              <CloseIcon />
-            </IconButton>
-            {confirmContent?.component()}
-          </Box>
-        ) : (
+      {
+        confirm_Open && (
           <>
-            <DialogTitle id="alert-dialog-title">
-              {confirm_Open && confirmContent?.title}
-            </DialogTitle>
-
-            <IconButton
-              aria-label="close"
-              onClick={handleClose}
-              sx={(theme) => ({
-                position: 'absolute',
-                right: 8,
-                top: 8,
-                color: theme.palette.grey[500],
-              })}
+            <Dialog
+              open={confirm_Open}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+              TransitionComponent={Transition}
+              keepMounted
             >
-              <CloseIcon />
-            </IconButton>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                {confirm_Open && confirmContent?.content}
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              {confirm_Open &&
-                confirmContent?.actions?.map((action, index) => (
-                  <div key={index}>
-                    <Button
-                      sx={action.sx}
-                      onClick={() => {
-                        action.handler();
-                        setConfirm(false);
-                      }}
-                    >
-                      {action?.lable}
-                    </Button>
-                  </div>
-                ))}
-            </DialogActions>
+              {confirmContent?.component ? (
+                <Box sx={{
+                  p: 5,
+                }}>
+                  <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={(theme) => ({
+                      position: 'absolute',
+                      right: 8,
+                      top: 6,
+                      color: theme.palette.grey[500],
+                    })}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                  {confirmContent?.component()}
+                </Box>
+              ) : (
+                <>
+                  <DialogTitle id="alert-dialog-title">
+                    {confirm_Open && confirmContent?.title}
+                  </DialogTitle>
+
+                  <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={(theme) => ({
+                      position: 'absolute',
+                      right: 8,
+                      top: 8,
+                      color: theme.palette.grey[500],
+                    })}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      {confirm_Open && confirmContent?.content}
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    {confirm_Open &&
+                      confirmContent?.actions?.map((action, index) => (
+                        <div key={index}>
+                          <Button
+                            sx={action.sx}
+                            onClick={() => {
+                              action.handler();
+                              setConfirm(false);
+                            }}
+                          >
+                            {action?.lable}
+                          </Button>
+                        </div>
+                      ))}
+                  </DialogActions>
+                </>
+              )}
+            </Dialog>
           </>
-        )}
-      </Dialog>
+        )
+      }
+
     </React.Fragment>
   );
 }
