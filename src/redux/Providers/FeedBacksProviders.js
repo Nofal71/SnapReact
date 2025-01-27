@@ -23,10 +23,10 @@ const useFeedBacks = () => {
         const action = { open, title, content, actions }
         dispatch(CONFIRM_content(action))
     }
-    const setNewConfirm = (open, component) => {
+    const setNewConfirm = (open, Component) => {
         const action = {
             open,
-            component: typeof component === "function" ? component : () => component
+            component: Component,
         };
         dispatch(AddNewComponent(action));
     };

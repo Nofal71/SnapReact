@@ -1,10 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useFeedBacks from '../../redux/Providers/FeedBacksProviders'
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography } from '@mui/material'
+
+
+const ConfirmComponent = ({ data, onSubmit, onClose }) => {
+  const [formData, setFormData] = useState(data || { name: '', email: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = () => {
+    onSubmit(formData);
+    onClose();
+  };
+
+  return (
+    <Box>
+      <Typography variant="h6">Confirm Form</Typography>
+      <TextField
+        label="Name"
+        variant="outlined"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Email"
+        variant="outlined"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <Box mt={2} display="flex" justifyContent="space-between">
+        <Button variant="outlined" color="secondary" onClick={onClose}>
+          Cancel
+        </Button>
+        <Button variant="contained" color="primary" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
 const Home = () => {
 
   const { setSnackBar, setAlert, setConfirm, setNewConfirm } = useFeedBacks()
+
+  const handleFormSubmit = (formData) => {
+    console.log('Form Submitted with Data:', formData);
+    setAlert('Form Submitted Successfully!', 'success');
+  };
 
   return (
     <Box p={5} display={'flex'} gap={4}>
@@ -24,16 +79,14 @@ const Home = () => {
           { lable: 'Action 2', sx: { background: 'primary.light' }, handler: () => setAlert("Action Two Clicked", 'warning') },
         ])} > Open Confirm </Button>
       <Button
-        color='primary'
-        variant='contained'
-        onClick={() => setNewConfirm(true, () => {
-          return (
-            <>
-              <Typography>New Confim Dialogue</Typography>
-              <Button onClick={() => setNewConfirm(false)} >Close</Button>
-            </>
-          )
-        })} > Open New Confirm </Button>
+        color="primary"
+        variant="contained"
+        onClick={() =>
+          setNewConfirm(true, <ConfirmComponent data={{ name: '', email: '' }} onSubmit={handleFormSubmit} onClose={() => setNewConfirm(false)} />)
+        }
+      >
+        Open New Modal with Form
+      </Button>
     </Box>
   )
 }

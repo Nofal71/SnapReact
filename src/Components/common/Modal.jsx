@@ -50,7 +50,7 @@ export default function AlertDialog() {
                   >
                     <CloseIcon />
                   </IconButton>
-                  {confirmContent?.component()}
+                  {confirmContent.component}
                 </Box>
               ) : (
                 <>
