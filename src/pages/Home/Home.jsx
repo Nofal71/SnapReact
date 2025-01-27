@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import useFeedBacks from '../../redux/Providers/FeedBacksProviders'
 import { Box, Button, TextField, Typography } from '@mui/material'
+import { snap_features } from 'snap-react';
 
 
 const ConfirmComponent = ({ data, onSubmit, onClose }) => {
@@ -54,7 +54,7 @@ const ConfirmComponent = ({ data, onSubmit, onClose }) => {
 
 const Home = () => {
 
-  const { setSnackBar, setAlert, setConfirm, setNewConfirm } = useFeedBacks()
+  const { setSnackBar, setAlert, setConfirm, setNewConfirm } = snap_features()
 
   const handleFormSubmit = (formData) => {
     console.log('Form Submitted with Data:', formData);

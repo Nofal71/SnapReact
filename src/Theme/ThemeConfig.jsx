@@ -1,10 +1,10 @@
 import { ThemeProvider } from '@emotion/react';
 import { createTheme, CssBaseline } from '@mui/material';
 import React from 'react';
-import useFeedBacks from '../redux/Providers/FeedBacksProviders';
+import { snap_features } from 'snap-react';
 
 const ThemeConfig = ({ children }) => {
-    const { theme_mode } = useFeedBacks();
+    const { theme_mode } = snap_features();
 
     const lightThemePalette = {
         mode: 'light',

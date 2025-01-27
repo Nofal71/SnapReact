@@ -5,9 +5,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import useFeedBacks from '../../redux/Providers/FeedBacksProviders';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, IconButton, Slide } from '@mui/material';
+import { snap_features } from 'snap-react';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -15,7 +15,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function AlertDialog() {
-  const { confirm_Open, setConfirm, confirmContent } = useFeedBacks();
+  const { confirm_Open, setConfirm, confirmContent } = snap_features();
 
   const handleClose = () => {
     setConfirm(false);

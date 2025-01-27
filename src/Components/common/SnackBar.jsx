@@ -4,10 +4,10 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { LinearProgress, Box } from '@mui/material';
-import useFeedBacks from '../../redux/Providers/FeedBacksProviders';
+import { snap_features } from 'snap-react';
 
 export default function SnackBar() {
-    const { setSnackBar, snackbar_Open } = useFeedBacks();
+    const { setSnackBar, snackbar_Open } = snap_features();
     const [progress, setProgress] = useState(0);
     const timeoutRef = useRef(null)
 

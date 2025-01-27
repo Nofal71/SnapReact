@@ -1,9 +1,9 @@
 import { Alert, Snackbar } from '@mui/material'
 import React, { useEffect, useRef } from 'react'
-import useFeedBacks from '../../redux/Providers/FeedBacksProviders'
+import { snap_features } from 'snap-react'
 
 const MUI_Alert = () => {
-    const { Alert_isOpen, setAlert } = useFeedBacks()
+    const { Alert_isOpen, setAlert } = snap_features()
     const timeoutRef = useRef(null)
 
     useEffect(() => {

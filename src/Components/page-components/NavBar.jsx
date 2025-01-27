@@ -13,8 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { styled, Switch } from '@mui/material';
-import useFeedBacks from '../../redux/Providers/FeedBacksProviders';
 import { motion } from 'framer-motion';
+import { snap_features } from 'snap-react';
 
 
 const AnimateAppBar = motion(AppBar)
@@ -84,7 +84,7 @@ function NavBar() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [scale, setScale] = React.useState(true);
 
-    const { toggleTheme, theme_mode } = useFeedBacks();
+    const { toggleTheme, theme_mode } = snap_features();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
