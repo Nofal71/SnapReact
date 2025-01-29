@@ -1,82 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Divider from '@mui/material/Divider';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-import MuiCard from '@mui/material/Card';
-import { styled } from '@mui/material/styles';
+import {
+    Box, Button, Checkbox, FormControlLabel, Divider,
+    FormLabel, FormControl, Typography, IconButton,
+    InputAdornment
+} from '@mui/material';
 import { Google, Visibility, VisibilityOff } from '@mui/icons-material';
-import { CircularProgress, IconButton, InputAdornment } from '@mui/material';
+import { Card, InputField, SignInContainer } from '../theme/ThemeConfig';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const Card = styled(MuiCard)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    alignSelf: 'center',
-    width: '100%',
-    borderRadius: '25px',
-    padding: theme.spacing(4),
-    gap: theme.spacing(2),
-    margin: 'auto',
-    [theme.breakpoints.up('sm')]: {
-        maxWidth: '450px',
-    },
-    boxShadow:
-        'hsla(220, 30%, 5%, 0.05) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.05) 0px 15px 35px -5px',
-    ...theme.applyStyles('dark', {
-        boxShadow:
-            'hsla(220, 30%, 5%, 0.5) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.08) 0px 15px 35px -5px',
-    }),
-}));
 
-const SignInContainer = styled(Stack)(({ theme }) => ({
-    height: 'calc((1 - var(--template-frame-height, 0)) * 100dvh)',
-    minHeight: '100%',
-    padding: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-        padding: theme.spacing(4),
-    },
-    '&::before': {
-        content: '""',
-        display: 'block',
-        position: 'absolute',
-        zIndex: -1,
-        inset: 0,
-        backgroundImage:
-            'radial-gradient(ellipse at 50% 50%, hsl(210, 100%, 97%), hsl(0, 0%, 100%))',
-        backgroundRepeat: 'no-repeat',
-        ...theme.applyStyles('dark', {
-            backgroundImage:
-                'radial-gradient(at 50% 50%, hsla(210, 100%, 16%, 0.5), hsl(220, 30%, 5%))',
-        }),
-    },
-}));
 
-const InputField = styled(TextField)(({ }) => ({
-    '& .MuiInputBase-root': {
-        height: '42px',
-    },
-    '& .MuiInputBase-input': {
-        padding: '6px 10px',
-        fontSize: '14px',
-    },
-    '& .MuiFormLabel-root': {
-        fontSize: '14px',
-    },
-    '& .MuiFormHelperText-root': {
-        fontSize: '12px',
-    },
-}));
-
-export default function SignInPage() {
+export default function SignIn() {
 
     const [hidePassword, setHidePassword] = useState(true)
     const { register, handleSubmit, formState: { isSubmitting, errors } } = useForm()

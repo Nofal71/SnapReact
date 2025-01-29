@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignInPage from '../Authentications/LoginPage';
-import SignUpPage from '../Authentications/SignupPage';
-import NavBar from '../Components/page-components/NavBar';
+import NavBar from '../components/layout/NavBar';
 import TutorialComponent from '../pages/TutorialComponent';
 import SearchTurorial from '../pages/SearchTutorial';
+import SignUp from '../auth/Signup'
+import SignIn from '../auth/Login'
 
 const MainLayout = ({ children }) => (
   <>
@@ -19,7 +19,7 @@ const AuthLayout = ({ children }) => (
   </>
 );
 
-const Setup = () => {
+const RouterSetup = () => {
   return (
     <Router>
       <Routes>
@@ -39,7 +39,7 @@ const Setup = () => {
           path='/login'
           element={
             <AuthLayout>
-              <SignInPage />
+              <SignIn />
             </AuthLayout>
           }
         />
@@ -47,7 +47,7 @@ const Setup = () => {
           path='/signup'
           element={
             <AuthLayout>
-              <SignUpPage />
+              <SignUp />
             </AuthLayout>
           }
         />
@@ -56,4 +56,4 @@ const Setup = () => {
   );
 };
 
-export default Setup;
+export default RouterSetup;

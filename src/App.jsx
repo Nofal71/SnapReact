@@ -1,4 +1,4 @@
 import React from 'react'
-import Setup from '../src/Routes/Setup'
-const App = () => <Setup />
+import RouterSetup from './routes/RouterSetup'
+const App = () => <RouterSetup />
 export default App

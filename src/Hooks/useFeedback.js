@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { AddNewComponent, CONFIRM_content, SET_Alert, SET_SnackBar, TOGGLE_Theme } from "../Slices/FeedBackSlice"
+import { AddNewComponent, CONFIRM_content, SET_Alert, SET_SnackBar, TOGGLE_Theme } from "../config/redux/slices/feedbackSlice"
 
 const useFeedBacks = () => {
     const Alert_isOpen = useSelector(state => state.feedbacks.Alert)

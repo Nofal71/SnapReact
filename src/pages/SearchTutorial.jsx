@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Input, Typography, CircularProgress, Stack } from "@mui/material";
-import useSearch from "../Hooks/useSearch";
+import useSearch from "../hooks/useSearch";
 
 const data = [
   { id: 1, name: "Apple" },
