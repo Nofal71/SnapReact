@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "baseUrl": "../../../src",  
+      "paths": {
+        "snap-react": ["config/snap-react"] 
+      }
+    }
+  }
+  

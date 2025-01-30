@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "allowJs": true,
+    "outDir": "dist",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "snap-react": ["config/snap-react"]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "src/config/snap-react"
+    ],
+    "allowSyntheticDefaultImports": true 
+  },
+  "include": ["src"]
+}
