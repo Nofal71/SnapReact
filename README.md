@@ -1,40 +1,53 @@
-
-# **SnapReact Documentation**
-
-## **Overview**
-
-SnapReact is a powerful React project that provides a collection of UI features such as SnackBars, Alerts, Confirm Dialogs, and Custom Modals, all of which are easy to integrate into your React app.
-
-## **Installation**
-
-To get started, simply use `npx` or `yarn` to create a new app with the SnapReact template.
-
-### Using **npx**:
-
-```bash
-npx create-snapreact my-app
-```
-
-### Using **yarn**:
-
-```bash
-yarn create snapreact my-app
-```
-
-This will generate a new project with the name `my-app` based on the SnapReact template. Once the installation is complete, you can start using the provided features directly in your components.
+Here’s how you can update your documentation with the new command structure:
 
 ---
 
-## **Core Features Usage**
+## **SnapReact Documentation**
 
-### **1. SnackBar**
+### **Overview**
 
-The SnackBar is a floating message that appears at the bottom of the screen. You can trigger it for various messages like success, error, or information.
+SnapReact is a feature-rich React package designed to simplify the integration of common UI components such as SnackBars, Alerts, Confirm Dialogs, and Custom Modals. It also comes with pre-configured solutions for state management, theming, and routing. With the added flexibility of templates in both JavaScript (`js-mui`) and TypeScript (`ts-mui`), SnapReact is an ideal choice for rapid React app development. It’s powered by the Vite engine to offer fast and efficient development.
 
-#### **Usage**:
+### **Installation**
+
+You can get started with SnapReact using `npx` or `yarn`.
+
+#### **Using `npx` (no installation required)**:
+To scaffold a new SnapReact project without global installation, simply run:
+
+```bash
+npx nofal-snapreact my-app
+```
+
+This command will create a new project named `my-app` using the latest version of SnapReact.
+
+#### **Using `yarn` (global installation)**:
+Alternatively, you can install the CLI tool globally using Yarn:
+
+```bash
+yarn global add nofal-snapreact
+```
+
+Once installed, create a new SnapReact project by running:
+
+```bash
+create-snapreact my-app
+```
+
+This will set up your new SnapReact project in the `my-app` folder.
+
+---
+
+### **Core Features Usage**
+
+#### **1. SnackBar**
+
+The SnackBar displays floating messages at the bottom of the screen, perfect for notifications like success, error, or information.
+
+##### **Usage**:
 
 ```js
-import { snap_features } from '@nofal71/snapreact';
+import { snap_features } from 'snap-features';
 
 const { setSnackBar } = snap_features();
 
@@ -45,14 +58,14 @@ setSnackBar(true, "Snack message", () => setAlert("Undo action", "info"));
 setSnackBar(true, "Snack message");
 ```
 
-### **2. Alert**
+#### **2. Alert**
 
-Alerts are notifications that inform the user about important events or actions. You can trigger them with different severity levels such as success, error, or info.
+Alerts notify users about important events. You can customize the severity (success, error, info) based on your needs.
 
-#### **Usage**:
+##### **Usage**:
 
 ```js
-import { snap_features } from '@nofal71/snapreact';
+import { snap_features } from 'snap-features';
 
 const { setAlert } = snap_features();
 
@@ -60,14 +73,14 @@ const { setAlert } = snap_features();
 setAlert("Success message", "success");
 ```
 
-### **3. Confirm Dialog**
+#### **3. Confirm Dialog**
 
-The Confirm dialog allows you to prompt users for a decision (e.g., "Are you sure you want to delete?"). It includes customizable actions (buttons) for user interaction.
+The Confirm Dialog asks users to confirm actions (e.g., delete items). You can set custom buttons with handlers for each decision.
 
-#### **Usage**:
+##### **Usage**:
 
 ```js
-import { snap_features } from '@nofal71/snapreact';
+import { snap_features } from 'snap-features';
 
 const { setConfirm } = snap_features();
 
@@ -78,14 +91,14 @@ setConfirm(true, "Confirmation title", "Are you sure?", [
 ]);
 ```
 
-### **4. Custom Modal**
+#### **4. Custom Modal**
 
-You can create custom modals that display custom components, such as forms or interactive UI elements.
+Custom modals can display interactive components, like forms, within your application.
 
-#### **Usage**:
+##### **Usage**:
 
 ```js
-import { snap_features } from '@nofal71/snapreact';
+import { snap_features } from 'snap-features';
 
 const { setNewConfirm } = snap_features();
 
@@ -95,14 +108,41 @@ setNewConfirm(true, <YourCustomComponent />);
 
 ---
 
-## **Pre-configured Integrations**
+### **Pre-configured Integrations**
 
-- **Redux**: Redux is pre-configured with your project. You can access the store and dispatch actions as needed.
-- **Theme**: Material UI (MUI) is set up with a default theme, which can be used as-is or customized further.
-- **Routing**: React Router is set up to handle navigation in your app.
+- **Redux**: Redux is pre-configured and ready for use. You can access the store and dispatch actions as needed.
+- **Theme**: Material UI (MUI) is set up with a default theme, customizable to suit your needs.
+- **Routing**: React Router is already integrated for easy navigation handling.
 
 ---
 
-## **Conclusion**
+### **Templates**
 
-With `@nofal71/snapreact`, you can integrate essential UI features such as SnackBars, Alerts, Confirm Dialogs, and Custom Modals into your React application effortlessly. The package is designed to save you time by offering pre-configured solutions for state management (Redux), theming (MUI), and routing (React Router).
+SnapReact includes two templates for your convenience:
+
+- **js-mui template**: A JavaScript-based template using Material UI.
+- **ts-mui template**: A TypeScript-based template using Material UI.
+
+Simply choose the template based on your project needs when starting your app.
+
+---
+
+### **What You Get**
+
+#### **JavaScript with MUI (pre-configured)**
+
+![image](https://github.com/user-attachments/assets/8704b260-5434-4d2c-b836-146efdab99e6)
+
+#### **Typescript with MUI (pre-configured)**
+
+![image](https://github.com/user-attachments/assets/5a4b7a4c-1024-4d97-b2de-84bdc03791a1)
+
+---
+
+### **Conclusion**
+
+SnapReact offers a streamlined solution for integrating essential UI features like SnackBars, Alerts, Confirm Dialogs, and Custom Modals into your React application. With pre-configured Redux, MUI themes, and React Router, SnapReact helps you save time and focus on building your app. Whether you're using the `js-mui` or `ts-mui` template, SnapReact is designed to support your React development needs from start to finish.
+
+---
+
+This update includes the new `npx` and `yarn` commands for installing the SnapReact CLI tool, ensuring users can easily scaffold new projects using the SnapReact templates.
