@@ -1,7 +1,3 @@
-Here’s how you can update your documentation with the new command structure:
-
----
-
 ## **SnapReact Documentation**
 
 ### **Overview**
@@ -16,7 +12,7 @@ You can get started with SnapReact using `npx` or `yarn`.
 To scaffold a new SnapReact project without global installation, simply run:
 
 ```bash
-npx nofal-snapreact my-app
+npx create-snap-react-app my-app
 ```
 
 This command will create a new project named `my-app` using the latest version of SnapReact.
@@ -25,13 +21,13 @@ This command will create a new project named `my-app` using the latest version o
 Alternatively, you can install the CLI tool globally using Yarn:
 
 ```bash
-yarn global add nofal-snapreact
+yarn global add create-snap-react-app
 ```
 
 Once installed, create a new SnapReact project by running:
 
 ```bash
-create-snapreact my-app
+create-snap-react-app my-app
 ```
 
 This will set up your new SnapReact project in the `my-app` folder.
@@ -146,3 +142,5 @@ SnapReact offers a streamlined solution for integrating essential UI features li
 ---
 
 This update includes the new `npx` and `yarn` commands for installing the SnapReact CLI tool, ensuring users can easily scaffold new projects using the SnapReact templates.
+
+---
